@@ -24,7 +24,7 @@ export default function TeamMemberCard({ member }: TeamMemberCardProps) {
         <div className="absolute inset-0 bg-white/70 dark:bg-night-card/80" aria-hidden="true" />
         <EditableProfilePhoto
           photo={member.avatar}
-          className="pointer-events-none relative z-10"
+          className=" relative z-10"
           imageClassName="h-32 w-32 rounded-full bg-white shadow-xl ring-4 ring-white transition duration-300 hover:scale-105 motion-reduce:hover:scale-100 dark:ring-night-card"
         />
       </div>
