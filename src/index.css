@@ -72,4 +72,14 @@
   .eyebrow {
     @apply text-xs font-semibold uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300;
   }
+}/* Add to the END of src/index.css. These are safeguards, not substitutes for resizing oversized components. */
+html, body, #root { max-width: 100%; }
+html, body { overflow-x: clip; }
+#root { min-width: 0; }
+.card { min-width: 0; }
+@media (max-width: 639px) {
+  /* Long developer/project strings must not force their parent wider than the viewport. */
+  main h1, main h2, main h3, main p, main li { overflow-wrap: anywhere; }
+  main img, main svg { max-width: 100%; }
 }
+
