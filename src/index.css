@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-slate-50 text-slate-900 antialiased transition-colors duration-300 dark:bg-night dark:text-slate-50;
+    background-image:
+      radial-gradient(60rem 40rem at 90% -10%, rgb(14 165 233 / 0.12), transparent 60%),
+      radial-gradient(50rem 36rem at -10% 30%, rgb(249 115 22 / 0.08), transparent 60%),
+      radial-gradient(54rem 40rem at 60% 110%, rgb(20 184 166 / 0.1), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  .dark body {
+    background-image:
+      radial-gradient(60rem 40rem at 90% -10%, rgb(14 165 233 / 0.14), transparent 60%),
+      radial-gradient(50rem 36rem at -10% 30%, rgb(249 115 22 / 0.07), transparent 60%),
+      radial-gradient(54rem 40rem at 60% 110%, rgb(20 184 166 / 0.1), transparent 60%);
+  }
+
+  section[id] {
+    scroll-margin-top: 5rem;
+  }
+
+  :focus-visible {
+    outline: 2px solid #0284c7;
+    outline-offset: 3px;
+    border-radius: 0.5rem;
+  }
+
+  .dark :focus-visible {
+    outline-color: #7dd3fc;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-2xl bg-white ring-1 ring-slate-200 shadow-xl shadow-slate-900/5 transition-all duration-300 dark:bg-night-card dark:ring-slate-800 dark:shadow-black/40;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gradient-to-r from-sky-600 via-blue-500 to-cyan-500 bg-[length:200%_auto] px-6 py-3 text-sm font-semibold text-white shadow-lg shadow-sky-600/25 transition-[background-position,transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:bg-right hover:shadow-xl active:translate-y-0;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-semibold text-slate-800 ring-1 ring-slate-300 transition duration-200 hover:-translate-y-0.5 hover:bg-slate-100 active:translate-y-0 dark:bg-white/5 dark:text-slate-100 dark:ring-slate-700 dark:hover:bg-white/10;
+  }
+
+  .chip {
+    @apply inline-flex items-center rounded-full bg-sky-50 px-3 py-1 text-xs font-medium text-sky-700 ring-1 ring-sky-200 dark:bg-sky-500/10 dark:text-sky-300 dark:ring-sky-500/30;
+  }
+
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.18em] text-sky-700 dark:text-sky-300;
+  }
+}

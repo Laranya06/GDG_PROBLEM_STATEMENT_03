@@ -1,0 +1,91 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 1973 >>
+stream
+BT
+/F2 20 Tf
+1 0 0 1 56 760 Tm (Aarav Sharma) Tj
+/F1 12 Tf
+1 0 0 1 56 733 Tm (Full-Stack Developer & Computer Science Student) Tj
+/F1 10 Tf
+1 0 0 1 56 714 Tm (Sample contact: aarav.sharma@example.com  |  Sample portfolio \(fictional\)) Tj
+/F1 6 Tf
+1 0 0 1 56 699 Tm () Tj
+/F2 13 Tf
+1 0 0 1 56 688 Tm (Summary) Tj
+/F1 10 Tf
+1 0 0 1 56 668 Tm (Computer Science student who builds accessible, responsive web applications) Tj
+/F1 10 Tf
+1 0 0 1 56 653 Tm (with React, TypeScript, and Node.js. Focused on clean code and great UX.) Tj
+/F1 6 Tf
+1 0 0 1 56 638 Tm () Tj
+/F2 13 Tf
+1 0 0 1 56 627 Tm (Skills) Tj
+/F1 10 Tf
+1 0 0 1 56 607 Tm (Frontend: React, TypeScript, Tailwind CSS, HTML and CSS, Figma) Tj
+/F1 10 Tf
+1 0 0 1 56 592 Tm (Backend: Node.js, Express.js, MongoDB, REST APIs) Tj
+/F1 10 Tf
+1 0 0 1 56 577 Tm (Tools and languages: JavaScript, Python, Git, Vite) Tj
+/F1 6 Tf
+1 0 0 1 56 562 Tm () Tj
+/F2 13 Tf
+1 0 0 1 56 551 Tm (Projects) Tj
+/F2 10 Tf
+1 0 0 1 56 531 Tm (Pulse Dashboard \(React, TypeScript, Tailwind CSS\)) Tj
+/F1 10 Tf
+1 0 0 1 56 516 Tm (Interactive study analytics dashboard with responsive charts.) Tj
+/F2 10 Tf
+1 0 0 1 56 501 Tm (Campus Cafe Orders \(React, Node.js, Express, MongoDB\)) Tj
+/F1 10 Tf
+1 0 0 1 56 486 Tm (Full-stack ordering app with menu browsing and order status tracking.) Tj
+/F2 10 Tf
+1 0 0 1 56 471 Tm (Focus Notes \(React, JavaScript, Tailwind CSS\)) Tj
+/F1 10 Tf
+1 0 0 1 56 456 Tm (Distraction-free note app with instant search and tagging.) Tj
+/F1 6 Tf
+1 0 0 1 56 441 Tm () Tj
+/F2 13 Tf
+1 0 0 1 56 430 Tm (Learning Journey) Tj
+/F1 10 Tf
+1 0 0 1 56 410 Tm (Year 1: Started Computer Science with C and Python.) Tj
+/F1 10 Tf
+1 0 0 1 56 395 Tm (Year 2: Discovered frontend development with React.) Tj
+/F1 10 Tf
+1 0 0 1 56 380 Tm (Year 3: Full-stack foundations with Node.js, Express, and MongoDB.) Tj
+/F1 6 Tf
+1 0 0 1 56 365 Tm () Tj
+/F1 8 Tf
+1 0 0 1 56 354 Tm (Sample resume for demonstration purposes only. Details are fictional.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000002276 00000 n 
+0000002346 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+2421
+%%EOF

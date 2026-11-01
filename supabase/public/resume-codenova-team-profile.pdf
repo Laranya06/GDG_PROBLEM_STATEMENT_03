@@ -1,0 +1,97 @@
+%PDF-1.4
+1 0 obj
+<< /Type /Catalog /Pages 2 0 R >>
+endobj
+2 0 obj
+<< /Type /Pages /Kids [3 0 R] /Count 1 >>
+endobj
+3 0 obj
+<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Contents 4 0 R /Resources << /Font << /F1 5 0 R /F2 6 0 R >> >> >>
+endobj
+4 0 obj
+<< /Length 2208 >>
+stream
+BT
+/F2 20 Tf
+1 0 0 1 56 760 Tm (CodeNova - Student Development Team) Tj
+/F1 12 Tf
+1 0 0 1 56 733 Tm (Creative Minds. Clean Code. Real Impact.) Tj
+/F1 10 Tf
+1 0 0 1 56 714 Tm (Sample team contact: codenova.team@example.com \(fictional\)) Tj
+/F1 6 Tf
+1 0 0 1 56 699 Tm () Tj
+/F2 13 Tf
+1 0 0 1 56 688 Tm (Team Overview) Tj
+/F1 10 Tf
+1 0 0 1 56 668 Tm (A team of three student developers who collaborate on meaningful digital) Tj
+/F1 10 Tf
+1 0 0 1 56 653 Tm (experiences, from intuitive interfaces to scalable backend solutions.) Tj
+/F1 6 Tf
+1 0 0 1 56 638 Tm () Tj
+/F2 13 Tf
+1 0 0 1 56 627 Tm (Members) Tj
+/F2 10 Tf
+1 0 0 1 56 607 Tm (Aarav Sharma - Frontend Developer & UI/UX Lead) Tj
+/F1 10 Tf
+1 0 0 1 56 592 Tm (Skills: React, TypeScript, Tailwind CSS, Figma) Tj
+/F2 10 Tf
+1 0 0 1 56 577 Tm (Priya Verma - Backend Developer) Tj
+/F1 10 Tf
+1 0 0 1 56 562 Tm (Skills: Node.js, Express.js, MongoDB, REST APIs) Tj
+/F2 10 Tf
+1 0 0 1 56 547 Tm (Rohan Mehta - Full-Stack Developer & Team Coordinator) Tj
+/F1 10 Tf
+1 0 0 1 56 532 Tm (Skills: JavaScript, React, Python, Git) Tj
+/F1 6 Tf
+1 0 0 1 56 517 Tm () Tj
+/F2 13 Tf
+1 0 0 1 56 506 Tm (Projects) Tj
+/F2 10 Tf
+1 0 0 1 56 486 Tm (CampusConnect \(React, Node.js, Express, MongoDB\)) Tj
+/F1 10 Tf
+1 0 0 1 56 471 Tm (College event and student community management platform.) Tj
+/F2 10 Tf
+1 0 0 1 56 456 Tm (EcoTrack \(React, JavaScript, Tailwind CSS\)) Tj
+/F1 10 Tf
+1 0 0 1 56 441 Tm (Sustainability dashboard with interactive charts and goal tracking.) Tj
+/F2 10 Tf
+1 0 0 1 56 426 Tm (CollabBoard \(React, TypeScript, Node.js, MongoDB\)) Tj
+/F1 10 Tf
+1 0 0 1 56 411 Tm (Collaborative task management concept for student teams.) Tj
+/F1 6 Tf
+1 0 0 1 56 396 Tm () Tj
+/F2 13 Tf
+1 0 0 1 56 385 Tm (Sample Milestones) Tj
+/F1 10 Tf
+1 0 0 1 56 365 Tm (College hackathon participation: 24-hour event, working prototype presented.) Tj
+/F1 10 Tf
+1 0 0 1 56 350 Tm (Collaborative project showcase: full-stack academic project demonstrated.) Tj
+/F1 10 Tf
+1 0 0 1 56 335 Tm (Team development milestone: three prototypes built with Git and peer reviews.) Tj
+/F1 6 Tf
+1 0 0 1 56 320 Tm () Tj
+/F1 8 Tf
+1 0 0 1 56 309 Tm (Fictional sample profile for demonstration purposes only.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>
+endobj
+6 0 obj
+<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold >>
+endobj
+xref
+0 7
+0000000000 65535 f 
+0000000009 00000 n 
+0000000058 00000 n 
+0000000115 00000 n 
+0000000251 00000 n 
+0000002511 00000 n 
+0000002581 00000 n 
+trailer
+<< /Size 7 /Root 1 0 R >>
+startxref
+2656
+%%EOF
