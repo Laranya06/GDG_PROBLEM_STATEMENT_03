@@ -4,7 +4,7 @@ import { supabase } from '@/lib/supabase';
 import type { ProfileKey } from '@/types/portfolio';
 
 const PROFILE_KEYS: ProfileKey[] = ['individual', 'team-aarav', 'team-priya', 'team-rohan'];
-
+const STORAGE_KEY = 'builtsphere-profile-avatars';
 type AvatarOverrides = Partial<Record<ProfileKey, number>>;
 
 interface ProfileAvatarsContextValue {
@@ -17,36 +17,52 @@ const ProfileAvatarsContext = createContext<ProfileAvatarsContextValue | null>(n
 function isProfileKey(value: unknown): value is ProfileKey {
   return typeof value === 'string' && PROFILE_KEYS.includes(value as ProfileKey);
 }
-
 function isValidAvatarIndex(value: unknown): value is number {
   return typeof value === 'number' && Number.isInteger(value) && value >= 0 && value < AVATAR_PRESETS.length;
 }
+function readSavedAvatars(): AvatarOverrides {
+  if (typeof window === 'undefined') return {};
+  try {
+    const parsed: unknown = JSON.parse(window.localStorage.getItem(STORAGE_KEY) ?? '{}');
+    if (!parsed || typeof parsed !== 'object' || Array.isArray(parsed)) return {};
+    const saved = parsed as Record<string, unknown>;
+    const safe: AvatarOverrides = {};
+    for (const key of PROFILE_KEYS) {
+      if (isValidAvatarIndex(saved[key])) safe[key] = saved[key];
+    }
+    return safe;
+  } catch {
+    return {};
+  }
+}
 
 export function ProfileAvatarsProvider({ children }: { children: ReactNode }) {
-  const [overrides, setOverrides] = useState<AvatarOverrides>({});
+  const [overrides, setOverrides] = useState<AvatarOverrides>(readSavedAvatars);
+
+  useEffect(() => {
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(overrides));
+    } catch {
+      // Browsers may block local storage; avatar changes still work for this session.
+    }
+  }, [overrides]);
 
   useEffect(() => {
     if (!supabase) return;
-    let isActive = true;
-
+    let active = true;
     (async () => {
-      const { data, error } = await supabase
-        .from('profile_avatars')
-        .select('profile_key, avatar_index');
-      if (!isActive || error || !Array.isArray(data)) return;
-
-      const loaded: AvatarOverrides = {};
+      const { data, error } = await supabase.from('profile_avatars').select('profile_key, avatar_index');
+      if (!active || error || !Array.isArray(data)) return;
+      const remote: AvatarOverrides = {};
       for (const row of data) {
         if (isProfileKey(row?.profile_key) && isValidAvatarIndex(row?.avatar_index)) {
-          loaded[row.profile_key] = row.avatar_index;
+          remote[row.profile_key] = row.avatar_index;
         }
       }
-      setOverrides(loaded);
-    })();
-
-    return () => {
-      isActive = false;
-    };
+      // A browser's own explicit avatar selections take priority over remote defaults.
+      setOverrides((current) => ({ ...remote, ...current }));
+    })().catch(() => { /* Optional remote sync must not break local avatar selection. */ });
+    return () => { active = false; };
   }, []);
 
   const getAvatarIndex = useCallback(
@@ -54,32 +70,26 @@ export function ProfileAvatarsProvider({ children }: { children: ReactNode }) {
     [overrides],
   );
 
-  const saveAvatarIndex = useCallback(
-    async (profileKey: ProfileKey, avatarIndex: number) => {
-      if (!supabase) throw new Error('Photo changes are not available right now.');
-
-      const previousIndex = overrides[profileKey];
-      setOverrides((current) => ({ ...current, [profileKey]: avatarIndex }));
-
-      const { error } = await supabase.from('profile_avatars').upsert(
-        {
-          profile_key: profileKey,
-          avatar_index: avatarIndex,
-          updated_at: new Date().toISOString(),
-        },
-        { onConflict: 'profile_key' },
-      );
-
-      if (error) {
-        setOverrides((current) => ({ ...current, [profileKey]: previousIndex }));
-        throw new Error('We could not save your photo. Please try again.');
+  const saveAvatarIndex = useCallback(async (profileKey: ProfileKey, avatarIndex: number) => {
+    if (!isProfileKey(profileKey) || !isValidAvatarIndex(avatarIndex)) {
+      throw new Error('Invalid avatar selection.');
+    }
+    // Instant local update, regardless of whether Supabase has been configured on Netlify.
+    setOverrides((current) => ({ ...current, [profileKey]: avatarIndex }));
+    if (supabase) {
+      try {
+        const { error } = await supabase.from('profile_avatars').upsert(
+          { profile_key: profileKey, avatar_index: avatarIndex, updated_at: new Date().toISOString() },
+          { onConflict: 'profile_key' },
+        );
+        if (error) console.warn('Avatar saved locally; remote sync was unavailable.');
+      } catch {
+        console.warn('Avatar saved locally; remote sync was unavailable.');
       }
-    },
-    [overrides],
-  );
+    }
+  }, []);
 
   const value = useMemo(() => ({ getAvatarIndex, saveAvatarIndex }), [getAvatarIndex, saveAvatarIndex]);
-
   return <ProfileAvatarsContext.Provider value={value}>{children}</ProfileAvatarsContext.Provider>;
 }
 
